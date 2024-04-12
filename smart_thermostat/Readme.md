@@ -1,3 +1,2 @@
-Usecase:
+Thermostat system
 
-![alt text](Design_docs/image.png)
