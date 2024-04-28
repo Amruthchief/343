@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1714306595 source:e:\random-projects\smart_thermo\main.c
+	<stdio.h>
+	<string.h>
+	"jsmn.h"
+	"states.h"
+
+1714066874 e:\random-projects\smart_thermo\jsmn.h
+	<stddef.h>
+
+1714305856 e:\random-projects\smart_thermo\states.h
+
+1714306629 source:e:\random-projects\smart_thermo\states.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"states.h"
+	"jsmn.h"
+
