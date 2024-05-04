@@ -27,7 +27,7 @@ int main() {
             default:
                 printf("Invalid choice. Please try again.\n");
         }
-
+        loggedIn = 1;
         if (loggedIn) {
             int option;
             do {
@@ -45,13 +45,16 @@ int main() {
                 switch (option) {
                     case 1:
                         displayTemperature();
+                        // char* jsonData = displayTemperature();
+
+                        // free(jsonData);   
+                        
                         break;
                     case 2: {
-                        char* adjustedTempJSON = adjustTemperature();
-
-
-
-                        printf("Adjusted temperature JSON: %s\n", adjustedTempJSON);
+                        adjustTemperature();
+                        // char* adjustedTempJSON = adjustTemperature();
+                        
+                        // free(adjustedTempJSON);                        
                         break;
                     }
                     case 3:

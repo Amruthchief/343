@@ -1,0 +1,5 @@
+GET /path HTTP/1.1
+Host: Thermostat_UIr
+Content-Type: application/json
+Content-Length: 35
+{"command": "GET_Temp","value":"0"}

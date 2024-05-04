@@ -2,7 +2,7 @@
 #define STATES_H
 
 void displayStatus();
-void displayTemperature();
+char* displayTemperature();
 char* adjustTemperature();
 void displayPresets();
 int login();

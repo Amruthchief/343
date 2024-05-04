@@ -3,6 +3,8 @@
 #include <string.h>
 #include "states.h"
 #include "jsmn.h"
+#include "httpclient.h"
+#include "uart.h"
 
 #define MAX_USERS 10
 #define MAX_USERNAME_LENGTH 20
@@ -57,19 +59,35 @@ void displayStatus() {
     // Add code to display other status information
 }
 
-void displayTemperature() {
-    printf("Current temperature: 25°C\n"); // Example temperature, replace with actual value
+
+// Simulated function for displaying temperature
+char* displayTemperature() {
+    const char* jsonData = "{\"command\": \"GET_Temp\",\"value\":\"0\"}";
+    // HTTP packet
+    char* getRequest = createGetRequest(jsonData);
+    
+
+    // UART Tx
+    Uart_Tx(getRequest);
+    
+    return strdup(jsonData);
 }
 
+// Simulated function for adjusting temperature
 char* adjustTemperature() {
     int temperature;
     printf("Enter the new temperature: ");
     scanf("%d", &temperature);
 
-    char json[50]; // Adjust the size as needed
-    sprintf(json, "{\"temperature\": %d}", temperature);
+    char jsonData[50]; // Adjust the size as needed
+    sprintf(jsonData, "{\"command\": \"SET_Temp\",\"value\":\"%d\"}", temperature);
 
-    return strdup(json); // Returns a copy of the JSON string
+    char* postRequest = createPostRequest(jsonData);
+    // UART Tx
+    Uart_Tx(postRequest);
+
+    free(postRequest);
+    return strdup(jsonData);
 }
 
 void displayPresets() {
